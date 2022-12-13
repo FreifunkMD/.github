@@ -1,0 +1,12 @@
+## FreifunkMD-Community (intern)
+
+### Kommunikation
+
+Unsere Kanäle sind:
+* [Mailing-Liste FFMD-dev](https://lists.netz39.de/listinfo/netz39-ffmd-dev)
+* [Netz39 Discord](https://discord.com/invite/8FcDvAf) → #freifunk
+
+### Aktuelles
+
+* [Projekt: Zero Maintenance Revamp](https://github.com/orgs/FreifunkMD/projects/2)
+* [Umfrage: Wochentag für Freifunk-Treffen](https://dud-poll.inf.tu-dresden.de/eTOzQHJnIw/)
