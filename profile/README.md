@@ -9,4 +9,4 @@ Unsere Kanäle sind:
 ### Aktuelles
 
 * [Projekt: Zero Maintenance Revamp](https://github.com/orgs/FreifunkMD/projects/2)
-* [Umfrage: Wochentag für Freifunk-Treffen](https://dud-poll.inf.tu-dresden.de/eTOzQHJnIw/)
+* Nächstes Treffen am 12.01.2023
