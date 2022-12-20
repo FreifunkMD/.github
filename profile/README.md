@@ -9,4 +9,4 @@ Unsere Kanäle sind:
 ### Aktuelles
 
 * [Projekt: Zero Maintenance Revamp](https://github.com/orgs/FreifunkMD/projects/2)
-* Nächstes Treffen am 12.01.2023
+* Nächstes Treffen am 16.01.2023 19:30 Uhr im Netz30 und hybrid.
