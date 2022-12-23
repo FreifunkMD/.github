@@ -9,4 +9,5 @@ Unsere Kanäle sind:
 ### Aktuelles
 
 * [Projekt: Zero Maintenance Revamp](https://github.com/orgs/FreifunkMD/projects/2)
-* Nächstes Treffen am 16.01.2023 19:30 Uhr im Netz30 und hybrid.
+* Nächstes Treffen am 16.01.2023 19:30 Uhr im Netz39 und hybrid.
+* Die Freifunk-Treffen sollen einmal im Monat an einem Montagabend um 19:30 Uhr statfinden.
