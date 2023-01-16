@@ -3,6 +3,7 @@
 ### Kommunikation
 
 Unsere Kanäle sind:
+* [Mailing-Liste FFMD](https://lists.netz39.de/listinfo/netz39-ffmd)
 * [Mailing-Liste FFMD-dev](https://lists.netz39.de/listinfo/netz39-ffmd-dev)
 * [Netz39 Discord](https://discord.com/invite/8FcDvAf) → #freifunk
 
