@@ -11,25 +11,25 @@ body:
   - type: textarea
     id: what-is
     attributes:
-      label: What are you seeing?
-      description: Also tell us, where exactly on th website the issue occurs?
+      label: What do you see?
+      description: Also tell us, where exactly on the website the problem occurs?
       placeholder: Tell us what you see!
-      value: "A bug happened!"
+      value: "A bug happens!"
     validations:
       required: true
   - type: textarea
     id: what-should-be
     attributes:
       label: What did you expect to see?
-      description: Also tell us, where exactly on the website the issue occurs?
+      description: What do you want to see, where, and in which way?
       placeholder: Tell us what you want see!
-      value: "A bug happened!"
+      value: "The bug does not happen."
     validations:
       required: true
   - type: dropdown
     id: browsers
     attributes:
-      label: What browsers are you seeing the problem on?
+      label: In which browser do you see the problem?
       multiple: true
       options:
         - Firefox
