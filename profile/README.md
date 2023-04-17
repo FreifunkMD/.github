@@ -1,4 +1,4 @@
-## FreifunkMD-Community (intern)
+## FreifunkMD-Community
 
 ### Kommunikation
 
