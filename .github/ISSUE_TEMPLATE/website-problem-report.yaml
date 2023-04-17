@@ -1,0 +1,38 @@
+name: Website Issue Report
+description: File a website problem report
+title: "[Website]: "
+labels: ["website", "triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this website problem report!
+  - type: textarea
+    id: what-is
+    attributes:
+      label: What do you see?
+      description: Also tell us, where exactly on the website the problem occurs?
+      placeholder: Tell us what you see!
+      value: "A bug happens!"
+    validations:
+      required: true
+  - type: textarea
+    id: what-should-be
+    attributes:
+      label: What did you expect to see?
+      description: What do you want to see, where, and in which way?
+      placeholder: Tell us what you want see!
+      value: "The bug does not happen."
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: In which browser do you see the problem?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
