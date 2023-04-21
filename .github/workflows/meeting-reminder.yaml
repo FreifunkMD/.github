@@ -2,6 +2,7 @@ name: Send out reminder about monthly meeting
 
 on:
   schedule:
+    # Das sollte der Donnerstag vor dem dritten Montag des Monats sein.
     cron: 1 0 10-16 * 4
 
 uses: cstuder/apprise-ga@master
