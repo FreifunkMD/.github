@@ -5,26 +5,36 @@ on:
     # Das sollte der Donnerstag vor dem dritten Montag des Monats sein.
     cron: 1 0 10-16 * 4
 
-uses: cstuder/apprise-ga@v3.0.1
-with:
-  title: "📡 Kommenden Montag ist wieder Freifunk Stammtisch 📡"
-  message: "Am kommenden Montag ist unser nächstes Freifunk-Treffen, um 19:30 Uhr in den Räumen des Netz39 e.V. in der Leibnizstr. 32!"
-env:
-  APPRISE_URL: discord://${{ secrets.APPRISE_DISCORD_WEBHOOK_ID }}/${{ secrets.APPRISE_DISCORD_TOKEN }}
 
-uses: cstuder/apprise-ga@v3.0.1
-with:
-  title: "📡 Kommenden Montag ist wieder Freifunk Stammtisch 📡"
-  message: |-
-    Liebe Freifunk-Interessent:innen,
+jobs:
+  discord:
+    name: "Discord"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: cstuder/apprise-ga@v3.0.1
+      with:
+        title: "📡 Kommenden Montag ist wieder Freifunk Stammtisch 📡"
+        message: "Am kommenden Montag ist unser nächstes Freifunk-Treffen, um 19:30 Uhr in den Räumen des Netz39 e.V. in der Leibnizstr. 32!"
+      env:
+        APPRISE_URL: discord://${{ secrets.APPRISE_DISCORD_WEBHOOK_ID }}/${{ secrets.APPRISE_DISCORD_TOKEN }}
 
-    unser nächstes Treffen findet am kommenden Montag um 19:30 Uhr in den Räumen
-    des Netz39 e.V. (Leibnizstr. 32) statt.
+  email:
+    name: "E-Mail"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: cstuder/apprise-ga@v3.0.1
+      with:
+        title: "📡 Kommenden Montag ist wieder Freifunk Stammtisch 📡"
+        message: |-
+          Liebe Freifunk-Interessent:innen,
 
-    Falls ihr hybrid teilnehmen möchtet, gebt uns bitte bis 2h vorher kurz
-    Bescheid, dann kümmern wir uns um die Online-Variante.
+          unser nächstes Treffen findet am kommenden Montag um 19:30 Uhr in den Räumen
+          des Netz39 e.V. (Leibnizstr. 32) statt.
 
-    Viele Grüße,
-    Das ffmd-Team
-env:
-  APPRISE_URL: mailtos://${{ secrets.APPRISE_MAIL_USER }}:${{ secrets.APPRISE_MAIL_PASS }}@mail.netz39.de/?to=ffmd@netz39.de,ffmd-dev@netz39.de,announce@netz39.de&from=kontakt@md.freifunk.net
+          Falls ihr hybrid teilnehmen möchtet, gebt uns bitte bis 2h vorher kurz
+          Bescheid, dann kümmern wir uns um die Online-Variante.
+
+          Viele Grüße,
+          Das ffmd-Team
+      env:
+        APPRISE_URL: mailtos://${{ secrets.APPRISE_MAIL_USER }}:${{ secrets.APPRISE_MAIL_PASS }}@mail.netz39.de/?to=ffmd@netz39.de,ffmd-dev@netz39.de,announce@netz39.de&from=kontakt@md.freifunk.net
