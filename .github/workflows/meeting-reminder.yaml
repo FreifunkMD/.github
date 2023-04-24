@@ -7,13 +7,21 @@ on:
 
 
 jobs:
+  date:
+    name: "Calculate Date"
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          next_date=$(date -d "next Monday" "+%d.%m.")
+          echo "next_date=$next_date" >> "$GITHUB_ENV"   
+
   discord:
     name: "Discord"
     runs-on: ubuntu-latest
     steps:
       - uses: cstuder/apprise-ga@v3.0.1
         with:
-          title: "📡 Kommenden Montag ist wieder Freifunk Stammtisch 📡"
+          title: "📡 Kommenden Montag (${{ env.next_date }}) ist wieder Freifunk Stammtisch 📡"
           message: "Am kommenden Montag ist unser nächstes Freifunk-Treffen, um 19:30 Uhr in den Räumen des Netz39 e.V. in der Leibnizstr. 32!"
         env:
           APPRISE_URL: discord://${{ secrets.APPRISE_DISCORD_WEBHOOK_ID }}/${{ secrets.APPRISE_DISCORD_TOKEN }}
@@ -24,11 +32,11 @@ jobs:
     steps:
       - uses: cstuder/apprise-ga@v3.0.1
         with:
-          title: "📡 Kommenden Montag ist wieder Freifunk Stammtisch 📡"
+          title: "📡 Kommenden Montag (${{ env.next_date }}) ist wieder Freifunk Stammtisch 📡"
           message: |-
             Liebe Freifunk-Interessent:innen,
 
-            unser nächstes Treffen findet am kommenden Montag um 19:30 Uhr in den Räumen
+            unser nächstes Treffen findet am kommenden Montag (${{ env.next_date }}) um 19:30 Uhr in den Räumen
             des Netz39 e.V. (Leibnizstr. 32) statt.
 
             Falls ihr hybrid teilnehmen möchtet, gebt uns bitte bis 2h vorher kurz
