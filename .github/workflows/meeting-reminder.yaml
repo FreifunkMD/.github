@@ -2,8 +2,7 @@ name: Send out reminder about monthly meeting
 
 on:
   schedule:
-    # Das sollte der Donnerstag vor dem dritten Montag des Monats sein.
-    - cron: 1 0 10-16 * 4
+    - cron: '1 0 * * THU'
 
 
 jobs:
@@ -13,30 +12,40 @@ jobs:
     steps:
       - run: |
           next_date=$(date -d "next Monday" "+%d.%m.")
-          echo "next_date=$next_date" >> "$GITHUB_ENV"   
+          echo "next_date=$next_date" >> "$GITHUB_OUTPUT"
+          next_date_day=$(date -d "next Monday" "+%d")
+          if (( next_date_day < 16 || 23 < next_date_day ));
+          then
+            echo "::notice::Wrong week, skip sending reminder."
+            exit 1
+          fi
 
   discord:
     name: "Discord"
     runs-on: ubuntu-latest
+    needs:
+      - date
     steps:
       - uses: cstuder/apprise-ga@v3.0.1
         with:
-          title: "📡 Kommenden Montag (${{ env.next_date }}) ist wieder Freifunk Stammtisch 📡"
-          message: "Am kommenden Montag ist unser nächstes Freifunk-Treffen, um 19:30 Uhr in den Räumen des Netz39 e.V. in der Leibnizstr. 32!"
+          title: "📡 Kommenden Montag (${{ steps.date.outputs.next_date }}) ist wieder Freifunk Stammtisch 📡"
+          message: "Am kommenden Montag (${{ steps.date.outputs.next_date }}) ist unser nächstes Freifunk-Treffen, um 19:30 Uhr in den Räumen des Netz39 e.V. in der Leibnizstr. 32!"
         env:
           APPRISE_URL: discord://${{ secrets.APPRISE_DISCORD_WEBHOOK_ID }}/${{ secrets.APPRISE_DISCORD_TOKEN }}
 
   email:
     name: "E-Mail"
     runs-on: ubuntu-latest
+    needs:
+      - date
     steps:
       - uses: cstuder/apprise-ga@v3.0.1
         with:
-          title: "📡 Kommenden Montag (${{ env.next_date }}) ist wieder Freifunk Stammtisch 📡"
+          title: "📡 Kommenden Montag (${{ steps.date.outputs.next_date }}) ist wieder Freifunk Stammtisch 📡"
           message: |-
             Liebe Freifunk-Interessent:innen,
 
-            unser nächstes Treffen findet am kommenden Montag (${{ env.next_date }}) um 19:30 Uhr in den Räumen
+            unser nächstes Treffen findet am kommenden Montag (${{ steps.date.outputs.next_date }}) um 19:30 Uhr in den Räumen
             des Netz39 e.V. (Leibnizstr. 32) statt.
 
             Falls ihr hybrid teilnehmen möchtet, gebt uns bitte bis 2h vorher kurz
