@@ -14,7 +14,7 @@ jobs:
           next_date=$(date -d "next Monday" "+%d.%m.")
           echo "next_date=$next_date" >> "$GITHUB_OUTPUT"
           next_date_day=$(date -d "next Monday" "+%d")
-          if [[ 10#$next_date_day < 16 ]] || [[ 23 < 10#$next_date_day ]];
+          if [[ 10#$next_date_day < 15 ]] || [[ 10#$next_date_day > 22 ]];
           then
             echo "::notice::Wrong week, skip sending reminder."
             exit 1
