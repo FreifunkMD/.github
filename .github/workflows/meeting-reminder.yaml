@@ -3,6 +3,7 @@ name: Send out reminder about monthly meeting
 on:
   schedule:
     - cron: '1 0 * * THU'
+  workflow_dispatch:
 
 
 jobs:
