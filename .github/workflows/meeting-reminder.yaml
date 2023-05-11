@@ -11,7 +11,8 @@ jobs:
     name: "Calculate Date"
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - id: date
+        run: |
           next_date=$(date -d "next Monday" "+%d.%m.")
           echo "next_date=$next_date" >> "$GITHUB_OUTPUT"
           next_date_day=$(date -d "next Monday" "+%d")
@@ -20,7 +21,9 @@ jobs:
             echo "::notice::Wrong week, skip sending reminder."
             exit 1
           fi
-
+    outputs:
+      next_date: ${{ steps.date.outputs.next_date }}
+  
   discord:
     name: "Discord"
     runs-on: ubuntu-latest
@@ -29,8 +32,8 @@ jobs:
     steps:
       - uses: cstuder/apprise-ga@v3.0.1
         with:
-          title: "📡 Kommenden Montag (${{ steps.date.outputs.next_date }}) ist wieder Freifunk Stammtisch 📡"
-          message: "Am kommenden Montag (${{ steps.date.outputs.next_date }}) ist unser nächstes Freifunk-Treffen, um 19:30 Uhr in den Räumen des Netz39 e.V. in der Leibnizstr. 32!"
+          title: "📡 Kommenden Montag (${{ needs.date.outputs.next_date }}) ist wieder Freifunk Stammtisch 📡"
+          message: "Am kommenden Montag (${{ needs.date.outputs.next_date }}) ist unser nächstes Freifunk-Treffen, um 19:30 Uhr in den Räumen des Netz39 e.V. in der Leibnizstr. 32!"
         env:
           APPRISE_URL: discord://${{ secrets.APPRISE_DISCORD_WEBHOOK_ID }}/${{ secrets.APPRISE_DISCORD_TOKEN }}
 
