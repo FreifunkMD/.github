@@ -5,9 +5,9 @@ labels: ["triage"]
 assignees: []
 body:
   - type: markdown
-      attributes:
-        - value: |
-          Thanks for taking the time to fill out this problem report!
+      - attributes:
+          value: |
+            Thanks for taking the time to fill out this problem report!
   - type: textarea
     id: what-is
     attributes:
