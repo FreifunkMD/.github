@@ -1,6 +1,6 @@
 name: General Issue Report
 description: File a general problem report
-title: ""
+title: "[Generic]"
 labels: ["triage"]
 assignees: []
 body:
