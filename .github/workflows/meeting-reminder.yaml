@@ -49,11 +49,9 @@ jobs:
           message: |-
             Liebe Freifunk-Interessent:innen,
 
-            unser nächstes Treffen findet am kommenden Montag (${{ needs.date.outputs.next_date }}) um 19:30 Uhr in den Räumen
-            des Netz39 e.V. (Leibnizstr. 32) statt.
+            unser nächstes Treffen findet am kommenden Montag (${{ needs.date.outputs.next_date }}) um 19:30 Uhr in den Räumen des Netz39 e.V. (Leibnizstr. 32) statt.
 
-            Falls ihr hybrid teilnehmen möchtet, gebt uns bitte bis 2h vorher per Mail an kontakt@md.freifunk.net
-            Bescheid, dann kümmern wir uns um die Online-Variante.
+            Falls ihr hybrid teilnehmen möchtet, gebt uns bitte bis 2h vorher per Mail an kontakt@md.freifunk.net Bescheid, dann kümmern wir uns um die Online-Variante.
 
             Viele Grüße,
             Das ffmd-Team
