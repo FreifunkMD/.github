@@ -56,4 +56,4 @@ jobs:
             Viele Grüße,
             Das ffmd-Team
         env:
-          APPRISE_URL: mailtos://mail.netz39.de/?user=${{ secrets.APPRISE_MAIL_USER }}&pass=${{ secrets.APPRISE_MAIL_PASS }}&to=ffmd@netz39.de,ffmd-dev@netz39.de,announce@netz39.de
+          APPRISE_URL: mailtos://mail.netz39.de/?user=${{ secrets.APPRISE_MAIL_USER }}&pass=${{ secrets.APPRISE_MAIL_PASS }}&from=FFMD<bot@netz39.de>&to=ffmd@netz39.de,ffmd-dev@netz39.de,announce@netz39.de
