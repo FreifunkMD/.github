@@ -30,7 +30,7 @@ jobs:
     needs:
       - date
     steps:
-      - uses: cstuder/apprise-ga@v3.0.1
+      - uses: cstuder/apprise-ga@v3.0.2
         with:
           title: "📡 Kommenden Montag (${{ needs.date.outputs.next_date }}) ist wieder Freifunk Stammtisch 📡"
           message: "Wir treffen uns um 19:30 Uhr in den Räumen des Netz39 e.V. in der Leibnizstr. 32!"
@@ -43,7 +43,7 @@ jobs:
     needs:
       - date
     steps:
-      - uses: cstuder/apprise-ga@v3.0.1
+      - uses: cstuder/apprise-ga@v3.0.2
         with:
           title: "📡 Kommenden Montag (${{ needs.date.outputs.next_date }}) ist wieder Freifunk Stammtisch 📡"
           message: |-
