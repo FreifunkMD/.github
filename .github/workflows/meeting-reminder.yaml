@@ -21,6 +21,7 @@ jobs:
             echo "::notice::Wrong week, skip sending reminder."
             exit 1
           fi
+        continue-on-error: true
     outputs:
       next_date: ${{ steps.date.outputs.next_date }}
   
