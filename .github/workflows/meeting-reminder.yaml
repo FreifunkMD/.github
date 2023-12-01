@@ -2,7 +2,7 @@ name: Send out reminder about monthly meeting
 
 on:
   schedule:
-    - cron: '0 1 8-14 * THU'
+    - cron: '1 0 * * THU'
   workflow_dispatch:
 
 
@@ -15,6 +15,13 @@ jobs:
         run: |
           next_date=$(date -d "next Monday" "+%d.%m.")
           echo "next_date=$next_date" >> "$GITHUB_OUTPUT"
+          next_date_day=$(date -d "next Monday" "+%d")
+          if [[ $next_date_day < 15 ]] || [[ $next_date_day > 21 ]];
+          then
+            echo "::notice::Wrong week, skip sending reminder."
+            exit 1
+          fi
+        continue-on-error: true
     outputs:
       next_date: ${{ steps.date.outputs.next_date }}
   
