@@ -1,6 +1,8 @@
 name: Send out reminder about monthly meeting
 
 on:
+  # Be careful when changing the schedule:
+  # CRON uses _or_ when day-of-month and day-of-week are provided.
   schedule:
     - cron: '1 0 * * THU'
   workflow_dispatch:
